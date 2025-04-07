@@ -1,84 +1,55 @@
-# 🧩 Iteración - Configuración de Rutas y Componentes en React
+# 🍕 Pizzería Mamma Mía
 
-Esta iteración se enfocó en la implementación de rutas utilizando **React Router**, así como en la reorganización de componentes y la creación de vistas adicionales requeridas por el proyecto.
-
----
-
-## ✅ Requerimientos cumplidos
-
-### 1. Instalación y configuración de React Router
-
-- Se instaló `react-router-dom@7.2.0`
-- Se utilizó `HashRouter` para compatibilidad con GitHub Pages.
-- Se configuraron todas las rutas necesarias en `App.jsx`.
-
-### 2. Reorganización de componentes
-
-Se trasladaron los siguientes componentes a la carpeta `src/pages/`:
-
-- `Home.jsx`
-- `RegisterPage.jsx`
-- `LoginPage.jsx`
-- `Cart.jsx`
-- `Pizza.jsx`
-
-### 3. Rutas implementadas
-
-| Ruta         | Componente renderizado |
-| ------------ | ---------------------- |
-| `/`          | `Home`                 |
-| `/register`  | `RegisterPage`         |
-| `/login`     | `LoginPage`            |
-| `/cart`      | `Cart`                 |
-| `/pizza/:id` | `Pizza` (dinámico)     |
-| `/profile`   | `Profile`              |
-| `/404`       | `NotFound`             |
-| `*`          | Redirección a `/404`   |
-
-### 4. Componente `NotFound`
-
-- Página 404 creativa.
-- Incluye un mensaje de error y un botón para volver al inicio.
-
-### 5. Componente `Profile`
-
-- Muestra un email estático.
-- Incluye un botón de cerrar sesión (sin lógica aún, por implementar en futuras iteraciones).
-
-### 6. Componente `Navbar`
-
-- Menú de navegación con enlaces usando `Link`.
-- Botón del carrito (`🛒 Carrito - $XXX`) enlaza correctamente a `/cart`.
+Una aplicación web desarrollada con **React** que simula un sistema de pedidos de pizzas. Los usuarios pueden explorar el catálogo, añadir productos al carrito, modificar cantidades y ver el total actualizado en tiempo real desde cualquier vista.
 
 ---
 
-## 📁 Estructura del proyecto actual
+## 🚀 Tecnologías Utilizadas
 
-```
-src/
+- ⚛️ **React** (con Hooks)
+- 📦 **Context API** para manejo de estado global
+- 🌐 **React Router DOM** para el enrutamiento
+- 🎨 **Bootstrap** y CSS personalizado
+- 🧠 **Fetch API** para simular consumo de datos
+
+---
+
+## 🎯 Funcionalidades
+
+- Listado dinámico de pizzas con datos obtenidos desde una API local
+- Añadir pizzas al carrito desde la página principal
+- Aumentar, disminuir o eliminar cantidades desde el carrito
+- Visualización del total del pedido en todo momento (navbar y carrito)
+- Separación clara entre productos diferentes y unidades
+- Arquitectura basada en Context para carrito y datos
+
+---
+
+## 🗂️ Estructura del Proyecto
+
+```bash
+/src
+├── components/
+│   └── Navbar.jsx
+│   └── Header.jsx
+│
+├── context/
+│   └── CartContext.jsx         # Manejo del carrito
+│   └── PizzaContext.jsx        # Carga y distribución de datos de pizzas
 │
 ├── pages/
-│   ├── Home.jsx
-│   ├── RegisterPage.jsx
-│   ├── LoginPage.jsx
-│   ├── Cart.jsx
-│   ├── Pizza.jsx
-│   ├── Profile.jsx
+│   └── Home.jsx
+│   └── Cart.jsx
+│   └── Pizza.jsx
+│   └── LoginPage.jsx
+│   └── RegisterPage.jsx
+│   └── Profile.jsx
 │   └── NotFound.jsx
 │
-├── components/
-│   ├── Navbar.jsx
-│   ├── Footer.jsx
-│   └── ...
+├── styles/
+│   └── Cart.css
 │
 ├── App.jsx
-└── main.jsx
+├── main.jsx
+└── index.css
 ```
-
----
-
-## 📌 Notas
-
-- La lógica de autenticación aún no está implementada.
-- El componente `Pizza` utiliza un ID estático (`p001`) en el `useEffect`, pero está preparado para recibirlo dinámicamente desde la URL.
-- Las rutas están implementadas con `HashRouter` para soportar deploy en GitHub Pages. Se puede cambiar a `BrowserRouter` si se despliega en un servidor con soporte para rutas directas.
